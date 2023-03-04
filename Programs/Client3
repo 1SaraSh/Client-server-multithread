@@ -1,0 +1,68 @@
+/**
+ *
+ * @author saraa
+ */
+import java.net.*;
+import java.io.*;
+public class Client3 {
+    // initialize socket and input output streams
+    private Socket socket = null;
+    private DataInputStream input = null; // reading data from keyboard
+    private DataOutputStream out = null;
+    private DataInputStream in = null; // reading data from socket
+    // constructor to put ip address and port
+    public Client3(String ipAddress, int  port) throws IOException{
+        try{
+            socket = new Socket(ipAddress, port);
+            System.out.println("Connected");
+            // takes input from terminal
+            input = new DataInputStream(System.in);
+            // sends output to the socket
+            out = new DataOutputStream(socket.getOutputStream());
+            in = new DataInputStream(
+                        new BufferedInputStream(socket.getInputStream()));
+        }
+        catch(UnknownHostException u)
+        {
+            System.out.println(u);
+        }
+        catch(IOException i)
+        {
+            System.out.println(i);
+        }// string to read message from input
+        
+        String line = "";
+        // keep reading when there is something
+        while (true)
+        {
+        try{
+            System.out.println("Enter command to server");//enter command specified by client
+            line = input.readLine();
+            out.writeUTF(line); // writing data to the socket
+            String affirmation = in.readUTF(); //getting data from the socket to view if it is present
+            if(affirmation.equals("OK")){//file is present
+            System.out.println(affirmation);
+            String content = in.readUTF();
+            System.out.println("Received data from server: \n"+content);//print content of file
+            input.close();
+            out.close();
+            socket.close();
+            break;
+        
+            }else if (affirmation.equals("ERROR")){//file is not present
+                System.out.println(affirmation);
+            }else{//command is wrong
+                System.out.println(affirmation);
+            }
+           }
+            catch(IOException i){
+            System.out.println(i);
+        }
+           
+            System.out.println("");
+      }
+    }
+   public static void main(String args[]) throws IOException {
+    Client3 client = new Client3("127.0.0.3", 9000);
+    } 
+}
