@@ -7,8 +7,8 @@ _"C:\\Users\\saraa\\OneDrive\\Desktop\\Distributed Systems"._
 <p>Please specify your own directory with your text files, or the text files provided in "Distributed Systems" Folder. Edit the code in the areas with an X, with your preferred directory.</p> 
 <p><i>Note: All of "Distributed Systems" folder content is taken from Wikipedia.</i></p>
 
-You can start the program by running the server, and then run one or more clients. Write the command that you want in the client, and you'll recieve the needed outcome specified. In "Program" Folder, you can find the Server and Client programs, add as many clients as you'd like. <br>4 Clients are provided in the folder, if more is wanted
-just edit the IP address in the main method if you'd like to add more than 4.
+<h3>Run</h3>
+You can start the program by running the server, and then run one or more clients. Write the command that you want in the client, and you'll recieve the needed outcome specified. <br>In "Program" Folder, you can find the Server and Client programs, add as many clients as you'd like. <br>4 Clients are provided in the folder, if more is wanted just edit the IP address in the main method of each Client program.
 
 <h3>Commands:</h3>
 <ul>
