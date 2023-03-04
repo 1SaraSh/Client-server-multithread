@@ -38,43 +38,45 @@ public class Server{
             "Current Thread ID: "
             + Thread.currentThread().getId());//Showing ThreadID
     
-            try{
-               DataInputStream in;
-               DataOutputStream out;
-               in = new DataInputStream(
-                        new BufferedInputStream(connectionSocket.getInputStream()));
-                // sending output to the client socket
-                out = new DataOutputStream(connectionSocket.getOutputStream());
-                String line = "";
-                // reads message from client until "Over" is sent
-                while (true){
+            try {
+            DataInputStream in;
+            DataOutputStream out;
+            in = new DataInputStream(new BufferedInputStream(connectionSocket.getInputStream()));
+            // sending output to the client socket
+            out = new DataOutputStream(connectionSocket.getOutputStream());
+            String line = "";
+            while (true) {
+                try {
                     line = in.readUTF();
-                    if(line.equals("LIST")){
-                        out.writeUTF(getFiles());   //if List command is present use getFiles() method
-                    }
-                    else if(line.startsWith("GET")){ //if GET command is present use readFile() method
+                    System.out.println(line);
+                    if (line.equals("LIST")) {   //if List command is present use getFiles() method
+                        out.writeUTF(getFiles());
+                    } else if (line.startsWith("GET")) { //if GET command is present use readFile() method
                         String fileName = line.substring(3).trim(); //getting the filename
-                        File directoryPath = new File("C:\\Users\\saraa\\OneDrive\\Desktop\\Distributed Systems\\"+fileName); // XX adding the file name to directory
-                        if(directoryPath.exists()){//if file exists return OK and content
-                        out.writeUTF("OK");
-                        out.writeUTF(readFile(fileName));
-                        }else{
-                          out.writeUTF("ERROR");  //if file does not exist return error
+                        File directoryPath = new File("C:\\Users\\saraa\\OneDrive\\Desktop\\Distributed Systems\\" + fileName); // XX adding the file name to directory
+                        if (directoryPath.exists()) {//if file exists return OK and content
+                            out.writeUTF("OK");
+                            out.writeUTF(readFile(fileName));
+                        } else {
+                            out.writeUTF("ERROR");  //if file does not exist return error
                         }
-                        
-                    } else{
+
+                    } else {
                         out.writeUTF("UNKNOWN COMMAND");// command is unknown return Unknown string
                     }
-                
-                
-            System.out.println("Closing connection\n");
-// close connection
-connectionSocket.close();
-in.close(); break;}}
-            
-            catch(IOException ex){
-            System.out.println(ex);}
+                } catch (IOException i) {
+                    System.out.println(i);
+                    break;  //break the loop and close the connection on IO exception
+                }
             }
+            System.out.println("Closing connection\n");
+            // close connection
+            connectionSocket.close();
+            in.close();
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+    }
           public  static String  getFiles(){
         //Creating a File object for directory
         File directoryPath = new File("C:\\Users\\saraa\\OneDrive\\Desktop\\Distributed Systems"); //XX
@@ -87,7 +89,7 @@ in.close(); break;}}
         return List.strip(); //strip to remove the end \n
          }
          public  static String readFile(String filename){
-         File f = new File("C:\\Users\\saraa\\OneDrive\\Desktop\\Distributed Systems\\"+filename); //XX
+         File f = new File("C:\\Users\\saraa\\OneDrive\\Desktop\\Distributed Systems\\"+filename);//XX
          String text="";
          try (BufferedReader br = new BufferedReader(new FileReader(f))) {
             String line;
