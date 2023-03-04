@@ -7,7 +7,7 @@ Please specify your own directory with your text files, or the text files provid
 
 You can start the program by running the server, and then run one or both clients. Write the command that you want in the client, and your recieve the needed outcome specified.
 
-#Commands: 
+Commands: 
           "LIST"
           A list of names of all the files that are available on the server.
           
@@ -16,6 +16,6 @@ You can start the program by running the server, and then run one or both client
           
           The server can also respond with the message "unknown command" if the command it reads is not one of the two possible legal commands.
           
-#Server Display:
+Server Display:
                 The server displays if the connection has been connnected and when it is disconnected, and the ThreadID for each client active in that moment.
           
