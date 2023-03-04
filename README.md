@@ -17,7 +17,7 @@ You can start the program by running the server, and then run one or both client
           </li>
           <li>
           "GET <filename>":
-          The server checks whether the requested file exists. If so, it sends "OK" as a message to the client. Then it sends the contents of the file and closes the               connection. Otherwise, it sends a line beginning with the word "ERROR" to the client.<br>
+          The server checks whether the requested file exists. If so, it sends "OK" as a message to the client. Then it sends the contents of the file and <b>closes the               connection</b>. Otherwise, it sends a line beginning with the word "ERROR" to the client.<br>
           ex. "GET C.txt"
           </li>
           <li>
