@@ -5,7 +5,7 @@ The file has a collection of TEXT files. The directory used in this example is:
 "C:\\Users\\saraa\\OneDrive\\Desktop\\Distributed Systems". 
 Please specify your own directory with your text files, or the text files provided in "Distributed Systems" Folder. Edit the code in the areas with an X, with your directory.
 
-You can start the program by running the server, and then run one or both clients. Write the command that you want in the client, and your recieve the needed outcome specified.
+You can start the program by running the server, and then run one or both clients. Write the command that you want in the client, and you'll recieve the needed outcome specified.
 
 <h3>Commands:</h3>
 <ul>
