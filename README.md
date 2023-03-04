@@ -3,7 +3,8 @@
 This assignment, will write a multithreaded file server program. The server makes a collection of files available for transmission to clients.
 The file has a collection of TEXT files. The directory used in this example is:
 "C:\\Users\\saraa\\OneDrive\\Desktop\\Distributed Systems". 
-Please specify your own directory with your text files, or the text files provided in "Distributed Systems" Folder. Edit the code in the areas with an X, with your directory.
+Please specify your own directory with your text files, or the text files provided in "Distributed Systems" Folder. Edit the code in the areas with an X, with your directory. 
+                    Note: All Distributed Systems folder content is taken from Wikipedia.
 
 You can start the program by running the server, and then run one or both clients. Write the command that you want in the client, and you'll recieve the needed outcome specified.
 
