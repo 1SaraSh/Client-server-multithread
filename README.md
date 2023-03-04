@@ -2,7 +2,7 @@
 
 This assignment, will write a multithreaded file server program in Java language (Netbeans version 12.5 was formally used). The server makes a collection of files available for transmission to clients.<br>
 The file has a collection of <b>TEXT</b> files. The directory used in this example is:<br>
-<u>"C:\\Users\\saraa\\OneDrive\\Desktop\\Distributed Systems".</u>
+_"C:\\Users\\saraa\\OneDrive\\Desktop\\Distributed Systems"._
 <br>
 <p>Please specify your own directory with your text files, or the text files provided in "Distributed Systems" Folder. Edit the code in the areas with an X, with your directory.</p> 
 <p><i>Note: All Distributed Systems folder content is taken from Wikipedia.</i></p>
