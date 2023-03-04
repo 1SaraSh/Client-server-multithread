@@ -36,18 +36,23 @@ public class Client {
         
         String line = "";
         // keep reading when there is something
-        while (line!=null)
+        while (true)
         {
         try{
             System.out.println("Enter command to server");//enter command specified by client
             line = input.readLine();
             out.writeUTF(line); // writing data to the socket
-			
+			         System.out.println("sent");
             String affirmation = in.readUTF(); //getting data from the socket to view if it is present
             if(affirmation.equals("OK")){//file is present
             System.out.println(affirmation);
             String content = in.readUTF();
             System.out.println("Received data from server: \n"+content);//print content of file
+            input.close();
+            out.close();
+            socket.close();
+            break;
+        
             }else if (affirmation.equals("ERROR")){//file is not present
                 System.out.println(affirmation);
             }else{//command is wrong
@@ -58,18 +63,8 @@ public class Client {
             System.out.println(i);
         }
            
-        
-       // close the connection
-       try{
-            input.close();
-            out.close();
-            socket.close();
-            break;
-        }
-        catch(IOException i){
-            System.out.println(i);
-            break;
-        }}
+            System.out.println("");
+      }
     }
    public static void main(String args[]) throws IOException {
     Client client = new Client("127.0.0.1", 9000);
