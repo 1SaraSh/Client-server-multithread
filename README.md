@@ -10,7 +10,7 @@ You can start the program by running the server, and then run one or both client
 <h3>Commands:</h3>
 <ul>
           <li>
-          "LIST"
+          "LIST":
           A list of names of all the files that are available on the server.
           </li>
           <li>
