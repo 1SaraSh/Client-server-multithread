@@ -16,6 +16,6 @@ You can start the program by running the server, and then run one or both client
           The server can also respond with the message "unknown command" if the command it reads is not one of the two possible legal commands.
           
           
-Server Display:
+<h3>Server Display:</h3>
                 The server displays if the connection has been connnected and when it is disconnected, and the ThreadID for each client active in that moment.
           
