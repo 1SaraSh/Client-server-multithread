@@ -1,0 +1,103 @@
+/**
+ *
+ * @author saraa
+ * @author b_lam
+ */
+
+import java.io.*;
+import java.net.*;
+
+
+
+public class Server{
+    public static void main(String args[]) throws Exception{
+        try {
+            int port=9000;
+            ServerSocket server = new ServerSocket(port);
+            System.out.println("Server started");
+            System.out.println("Waiting for a client ...");
+            while(true){
+                Socket socket = server.accept();
+                System.out.println("Client accepted");
+                clientThread newClient = new clientThread(socket);
+                new Thread(newClient).start();
+            }
+                }catch (IOException ex) {
+                 System.out.println(ex);
+    }
+}
+}
+
+ class  clientThread implements Runnable {
+         Socket connectionSocket;
+         clientThread(Socket inSocket)
+         {connectionSocket=inSocket;}
+         @Override
+         public void run() {
+             System.out.println(
+            "Current Thread ID: "
+            + Thread.currentThread().getId());//Showing ThreadID
+    
+            try {
+            DataInputStream in;
+            DataOutputStream out;
+            in = new DataInputStream(new BufferedInputStream(connectionSocket.getInputStream()));
+            // sending output to the client socket
+            out = new DataOutputStream(connectionSocket.getOutputStream());
+            String line = "";
+            while (true) {
+                try {
+                    line = in.readUTF();
+                    if (line.equals("LIST")) {   //if List command is present use getFiles() method
+                        out.writeUTF(getFiles());
+                    } else if (line.startsWith("GET")) { //if GET command is present use readFile() method
+                        String fileName = line.substring(3).trim(); //getting the filename
+                        File directoryPath = new File("C:\\Users\\saraa\\OneDrive\\Desktop\\Distributed Systems\\" + fileName); // XX adding the file name to directory
+                        if (directoryPath.exists()) {//if file exists return OK and content
+                            out.writeUTF("OK");
+                            out.writeUTF(readFile(fileName));
+                        } else {
+                            out.writeUTF("ERROR");  //if file does not exist return error
+                        }
+
+                    } else {
+                        out.writeUTF("UNKNOWN COMMAND");// command is unknown return Unknown string
+                    }
+                } catch (IOException i) {
+                   // System.out.println(i);
+                    break;  //break the loop and close the connection on IO exception
+                }
+            }
+            System.out.println("Closing connection\n");
+            // close connection
+            connectionSocket.close();
+            in.close();
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+    }
+          public  static String  getFiles(){
+        //Creating a File object for directory
+        File directoryPath = new File("C:\\Users\\saraa\\OneDrive\\Desktop\\Distributed Systems"); //XX
+        String List="";
+        String contents[] = directoryPath.list();
+        //List of all files and directories as a string to be returned as a string for write() method
+        for(int i=0; i<contents.length; i++) {
+        List+=contents[i]+"\n";
+        }
+        return List.strip(); //strip to remove the end \n
+         }
+         public  static String readFile(String filename){
+         File f = new File("C:\\Users\\saraa\\OneDrive\\Desktop\\Distributed Systems\\"+filename);//XX
+         String text="";
+         try (BufferedReader br = new BufferedReader(new FileReader(f))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                text+=line; //adding line by line to the string
+            }
+         } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
+         }
+         return text;//return as string
+        }
+ }
