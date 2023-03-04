@@ -9,7 +9,7 @@ _"C:\\Users\\saraa\\OneDrive\\Desktop\\Distributed Systems"._
 
 <h3>Run</h3>
 You can start the program by running the server, and then run one or more clients. Write the command that you want in the client, and you'll recieve the needed outcome specified. <br>In "Program" Folder, you can find the Server and Client programs, add as many clients as you'd like. <br>4 Clients are provided in the folder, if more is wanted just edit the IP address in the main method of each Client program.
-
+<br>
 <h3>Commands:</h3>
 <ul>
           <li>
@@ -24,7 +24,7 @@ You can start the program by running the server, and then run one or more client
           <li>
           The server can also respond with the message "UNKNOWN COMMAND" if the command it reads is not one of the two possible legal commands.
           </li>
-</ul>       
+</ul>     <br>  
 <h3>Server Display:</h3>
                 The server displays if the connection has been connnected and when it is disconnected, and the ThreadID for each client active in that moment.
           
