@@ -7,8 +7,7 @@ Please specify your own directory with your text files, or the text files provid
 
 You can start the program by running the server, and then run one or both clients. Write the command that you want in the client, and your recieve the needed outcome specified.
 
-Commands: 
-          "LIST"
+Commands:"LIST"
           A list of names of all the files that are available on the server.
           
           "GET <filename>"
