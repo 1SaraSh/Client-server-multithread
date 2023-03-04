@@ -54,7 +54,7 @@ public class Server{
                     }
                     else if(line.startsWith("GET")){ //if GET command is present use readFile() method
                         String fileName = line.substring(3).trim(); //getting the filename
-                        File directoryPath = new File("C:\\Users\\saraa\\OneDrive\\Desktop\\Distributed Systems\\"+fileName); //adding the file name to directory
+                        File directoryPath = new File("C:\\Users\\saraa\\OneDrive\\Desktop\\Distributed Systems\\"+fileName); // XX adding the file name to directory
                         if(directoryPath.exists()){//if file exists return OK and content
                         out.writeUTF("OK");
                         out.writeUTF(readFile(fileName));
@@ -77,7 +77,7 @@ in.close(); break;}}
             }
           public  static String  getFiles(){
         //Creating a File object for directory
-        File directoryPath = new File("C:\\Users\\saraa\\OneDrive\\Desktop\\Distributed Systems");
+        File directoryPath = new File("C:\\Users\\saraa\\OneDrive\\Desktop\\Distributed Systems"); //XX
         String List="";
         String contents[] = directoryPath.list();
         //List of all files and directories as a string to be returned as a string for write() method
@@ -87,7 +87,7 @@ in.close(); break;}}
         return List.strip(); //strip to remove the end \n
          }
          public  static String readFile(String filename){
-         File f = new File("C:\\Users\\saraa\\OneDrive\\Desktop\\Distributed Systems\\"+filename);
+         File f = new File("C:\\Users\\saraa\\OneDrive\\Desktop\\Distributed Systems\\"+filename); //XX
          String text="";
          try (BufferedReader br = new BufferedReader(new FileReader(f))) {
             String line;
