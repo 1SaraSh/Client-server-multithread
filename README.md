@@ -1,6 +1,6 @@
 # Client-server-multithread
 
-This assignment, will write a multithreaded file server program in Java language (Netbeans version 12.5 was formally used). The server makes a collection of files available for transmission to clients.<br>
+This assignment, will write a multithreaded file server program in Java language (Netbeans version 12.5 was formally used). The server makes a collection of files available for transmission to clients.<br><br>
 The file has a collection of <b>TEXT</b> files. The directory used in this example is:<br>
 _"C:\\Users\\saraa\\OneDrive\\Desktop\\Distributed Systems"._
 <br>
